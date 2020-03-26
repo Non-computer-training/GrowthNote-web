@@ -3,7 +3,7 @@ package com.thoughtworks.repositories;
 import com.thoughtworks.entities.User;
 
 public interface UserRepositoryI {
-    User getUserByNameAndPassword(String name, String password);
+    User getUserByNameAndPassword(String userName, String password);
 
-    User userRegister(User user);
+    void userRegister(User user);
 }

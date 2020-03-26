@@ -1,30 +1,30 @@
 package com.thoughtworks.entities;
 
 public class User {
-    private String id;
-    private String name;
+    private Integer id;
+    private String userName;
     private String password;
 
-    public User(String id, String name, String password) {
+    public User(Integer id, String userName, String password) {
         this.id = id;
-        this.name = name;
+        this.userName = userName;
         this.password = password;
     }
 
-    public User(String name, String password) {
-        this.name = name;
+    public User(String userName, String password) {
+        this.userName = userName;
         this.password = password;
     }
 
     public User() {
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
     public String getPassword() {

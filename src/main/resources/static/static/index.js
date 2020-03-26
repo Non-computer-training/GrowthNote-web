@@ -1,6 +1,6 @@
 $("#form").on("click", ".btn", function () {
   $.ajax({
-    url: `/api/users?name=${$("#name").val()}&password=${$("#password").val()}`,
+    url: `/api/users?userName=${$("#name").val()}&password=${$("#password").val()}`,
     type: "GET",
     dataType: "json",
     success: function (result) {

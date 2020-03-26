@@ -17,14 +17,14 @@ public class UserController {
     private UserServiceI userService = new UserService();
 
     @GetMapping("")
-    public ResponseEntity<User> getUserByNameAndPassword(@PathParam("name") String name, @PathParam("password") String password) {
-        User user = userService.getUserByNameAndPassword(name, password);
+    public ResponseEntity<User> getUserByNameAndPassword(@PathParam("userName") String userName, @PathParam("password") String password) {
+        User user = userService.getUserByNameAndPassword(userName, password);
         return ResponseEntity.ok(user);
     }
 
     @PostMapping("")
-    public ResponseEntity<User> userRegister(@RequestBody User user) {
-        User userResult = userService.userRegister(user.getName(), user.getPassword());
-        return ResponseEntity.ok(userResult);
+    public ResponseEntity userRegister(@RequestBody User user) {
+        userService.userRegister(user.getUserName(), user.getPassword());
+        return ResponseEntity.ok(user);
     }
 }
