@@ -1,18 +1,16 @@
 package com.thoughtworks.utils;
 
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.*;
 import java.util.Objects;
 import java.util.Properties;
 
 public class JDBCUtils {
-    private static String url;
-    private static String user;
-    private static String password;
-    private static String driver;
+    private static String URL;
+    private static String USER;
+    private static String PASSWORD;
+    private static String DRIVER;
 
     static {
         try {
@@ -23,12 +21,12 @@ public class JDBCUtils {
             pro.load(new FileInputStream(path));
 
             //获取数据，赋值
-            url = pro.getProperty("url");
-            user = pro.getProperty("user");
-            password = pro.getProperty("password");
-            driver = pro.getProperty("driver");
+            URL = pro.getProperty("url");
+            USER = pro.getProperty("user");
+            PASSWORD = pro.getProperty("password");
+            DRIVER = pro.getProperty("driver");
             // 注册驱动
-            Class.forName(driver);
+            Class.forName(DRIVER);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -36,7 +34,7 @@ public class JDBCUtils {
 
     public static Connection getConnection() throws SQLException {
 
-        return DriverManager.getConnection(url, user, password);
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
     public static void close(Statement stmt, Connection conn) {
