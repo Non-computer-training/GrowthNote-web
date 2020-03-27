@@ -65,22 +65,7 @@ public class JDBCUtils {
                 e.printStackTrace();
             }
         }
-
-        if (stmt != null) {
-            try {
-                stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if (conn != null) {
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        close(stmt, conn);
     }
 
 }
